@@ -1,56 +1,56 @@
 import { render, screen, RenderResult, fireEvent, getByRole } from '@testing-library/react'
 import { Input } from './index'
 
-// describeで処理をまとめる
+// describe로 처리를 모은다
 describe('Input', () => {
   let renderResult: RenderResult
 
-  // それぞれのテストケース前にコンポーネントを描画し、renderResultにセットする
+  // 각 테스트 케이스 이전에 컴포넌트를 그리고, renderResult에 설정한다
   beforeEach(() => {
     renderResult = render(<Input id="username" label="Username" />)
   })
 
-  // テストケース実行後に描画していたコンポーネントを開放する
+  // 테스트 케이스 실행 후에 그리던 컴포넌트를 릴리스한다
   afterEach(() => {
     renderResult.unmount()
   })
 
-  // 初期描画時にinput要素が空であることをテスト
+  // 초기 그리기 시에 input 요소가 비어있는 것을 테스트
   it('should empty in input on initial render', () => {
-    // labelがUsernameであるコンポーネントに対応するinputの要素を取得する
+    // label이 Username인 컴포넌트에 대응하는 input의 요소를 얻는다
     const inputNode = screen.getByLabelText('Username') as HTMLInputElement
 
-    // input要素の表示が空か確認する
+    // input 요쇼 표시가 비었는지 확인한다
     expect(inputNode).toHaveValue('')
   })
 
-  // 文字を入力したら、入力した内容が表示されるかをテスト
+  // 문자를 입력하면, 입력한 내용이 표시되는 것을 테스트
   it('should show input text', () => {
     const inputText = 'Test Input Text'
     const inputNode = screen.getByLabelText('Username') as HTMLInputElement
 
-    // fireEventを使って、input要素のonChangeイベントを発火する
+    // fireEvent를 사용해 input 요소의 onChange 이벤트를 트리거한다
     fireEvent.change(inputNode, { target: { value: inputText } })
 
-    // input要素に入力したテキストが表示されているか確認する
+    // input 요소에 입력한 텍스트가 표시되는지 확인한다
     expect(inputNode).toHaveValue(inputText)
   })
 
-  // ボタンが押されたら、入力テキストがクリアするかチェック
+  // 버튼이 클릭되었다면 입력 텍스트가 삭제되는지 확인
   it('should reset when user clicks button', () => {
-    // 最初にinputにテキストを入力する
+    // 처음에 input에 텍스트를 입력한다
     const inputText = 'Test Input Text'
     const inputNode = screen.getByLabelText('Username') as HTMLInputElement
     fireEvent.change(inputNode, { target: { value: inputText } })
 
-    // ボタンを取得する
+    // 버튼을 얻는다
     const buttonNode = screen.getByRole('button', {
       name: 'Reset',
     }) as HTMLButtonElement
-    // ボタンをクリックする
+    // 버튼을 클릭한다
     fireEvent.click(buttonNode)
 
-    // input要素の表示が空か確認する
+    // input 요소 표시가 비어있는지 확인한다
     expect(inputNode).toHaveValue('')
   })
 })

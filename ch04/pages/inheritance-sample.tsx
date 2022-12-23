@@ -1,13 +1,13 @@
 import { NextPage } from 'next'
 import styled from 'styled-components'
 
-// 青いボールド文字を表示するコンポーネント
+// 파란색 굵은 문자를 표시하는 컴포넌트
 const Text = styled.p`
   color: blue;
   font-weight: bold;
 `
 
-// Textを継承し、ボーダーのスタイルを加えたコンポーネント
+// Text를 상속해, 경계선 스타일을 추가한 컴포넌트
 const BorderedText = styled(Text)`
   padding: 8px 16px;
   border: 3px solid blue;

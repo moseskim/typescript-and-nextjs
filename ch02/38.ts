@@ -6,10 +6,10 @@ interface Circle {
   radius: number;
 }
 
-// 複数のインタフェースを継承して新たなインタフェースを定義できます
+// 여러 인터페이스를 상속해서 새로운 인터페이스를 정의할 수 있다
 interface ColorfulCircle extends Colorful, Circle {}
 
 const cc: ColorfulCircle = {
-  color: '赤',
+  color: '빨강',
   radius: 10
 }
