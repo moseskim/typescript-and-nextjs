@@ -24,10 +24,10 @@ type StyledButtonProps = {
 
 export const StyledButton = styled.button<StyledButtonProps>`
   ${({ variant }) => {
-    // variantに与えられたキーを元に、対応するスタイルを取得する
+    // variant에 주어진 키를 기반으로, 대응할 스타일을 얻는다
     const style = variants[variant]
 
-    // cssを使い、複数のスタイルを返す
+    // css를 사용해, 여러 스타일을 반환한다
     return css`
       color: ${style.color};
       background-color: ${style.backgroundColor};

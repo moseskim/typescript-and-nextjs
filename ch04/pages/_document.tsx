@@ -1,7 +1,7 @@
 import Document, { DocumentContext } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-// デフォルトのDocumentをMyDocumentで上書き
+// 기본 Document를 MyDocument로 덮어 쓴다
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
@@ -14,16 +14,16 @@ export default class MyDocument extends Document {
             sheet.collectStyles(<App {...props} />),
         })
 
-      // 初期値を流用
+      // 초깃값을 유용한다
       const initialProps = await Document.getInitialProps(ctx)
 
-      // initialPropsに加えて、styleを追加して返す。
+      // initialProps에 더해, style을 추가해서 반환한다.
       return {
         ...initialProps,
         styles: [
-          // もともとのstyle
+          // 원래 style
           initialProps.styles,
-          // styled-componentsのstyle
+          // styled-components의 style
           sheet.getStyleElement()
         ],
       }

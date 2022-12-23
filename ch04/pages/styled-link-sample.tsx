@@ -7,10 +7,10 @@ type BaseLinkProps = React.PropsWithChildren<LinkProps> & {
   children: React.ReactNode
 }
 
-// Next.jsのリンクにスタイルを適用するためのヘルパーコンポーネント
-// このコンポーネントをstyled-componentsで使用すると、
-// 定義したスタイルに対応するclassNameがpropsとして渡される
-// このclassNameをa要素に渡す
+// Next.js의 링크에 스타일을 적용하기 위한 헬퍼 컴포넌트
+// 이 컴포넌트를 styled-components에서 사용하면,
+// 정의한 스타일에 대응하는 className이 props로서 전달된다
+// 이 calssName을 a 요소에 전달한다
 const BaseLink = (props: BaseLinkProps) => {
   const { className, children, ...rest } = props
   return (
@@ -28,7 +28,7 @@ const StyledLink = styled(BaseLink)`
 const Page: NextPage = () => {
   return (
     <div>
-      {/* 青色のリンクを表示する */}
+      {/* 파란색의 링크를 표시한다 */}
       <StyledLink href="/">Go to Index</StyledLink>
     </div>
   )

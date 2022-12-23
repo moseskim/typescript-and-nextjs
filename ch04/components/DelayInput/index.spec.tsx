@@ -1,85 +1,85 @@
 import { render, screen, RenderResult, fireEvent, act } from '@testing-library/react'
 import { DelayInput } from './index'
 
-// DelayInputコンポーネントに関するテスト
+// DelayInput 컴포넌트에 관한 테스트
 describe('DelayInput', () => {
   let renderResult: RenderResult
   let handleChange: jest.Mock
 
   beforeEach(() => {
-    // モック関数を作成する
+    // 목 함수를 작성한다
     handleChange = jest.fn()
 
-    // モック関数をDelayButtonに渡して描画
+    // 목 함수를 DelayButton에 전달해서 그린다
     renderResult = render(<DelayInput onChange={handleChange} />)
 
-    // タイマーをjestのものに置き換える
+    // 타이머를 jest의 것으로 치환한다
     jest.useFakeTimers()
   })
 
   afterEach(() => {
     renderResult.unmount()
 
-    // タイマーを元のものに戻す
+    // 타이머를 원래 것으로 되돌린다
     jest.useFakeTimers()
   })
 
-  // span要素のテキストが空であることをテスト
+  // span 요소의 텍스트가 비어있는 것을 테스트
   it('should display empty in span on initial render', () => {
     const spanNode = screen.getByTestId('display-text') as HTMLSpanElement
 
-    // 初期表示は空
-    expect(spanNode).toHaveTextContent('入力したテキスト:')
+    // 초기 표시는 비어있다
+    expect(spanNode).toHaveTextContent('입력한 텍스트:')
   })
 
-  // 入力直後はspan要素が「入力中...」と表示するかテスト
-  it('should display 「入力中...」 immediately after onChange event occurs', () => {
+  // 입력 직후는 span 요소가 '입력 중...'이라 표시하는지 테스트
+  it('should display 「입력 중...」 immediately after onChange event occurs', () => {
       const inputText = 'Test Input Text'
       const inputNode = screen.getByTestId('input-text') as HTMLInputElement
   
-      // inputのonChangeイベントを呼び出す
+      // input의 onChange 이벤트를 호출한다
       fireEvent.change(inputNode, { target: { value: inputText } })
   
       const spanNode = screen.getByTestId('display-text') as HTMLSpanElement
   
-      // 入力中と表示するか確認
-      expect(spanNode).toHaveTextContent('入力中...')
+      // 입력 중이라고 표시하는지 확인
+      expect(spanNode).toHaveTextContent('입력 중...')
   })
 
-  // 入力して1秒後にテキストが表示されるかテスト
+  // 입력해서 1초 후에 텍스트가 표시되는지 테스트
   it('should display input text 1 second after onChange event occurs', async () => {
     const inputText = 'Test Input Text'
     const inputNode = screen.getByTestId('input-text') as HTMLInputElement
 
-    // inputのonChangeイベントを呼び出す
+    // input의 onChange 이벤트를 호출한다
     fireEvent.change(inputNode, { target: { value: inputText } })
 
-    // act関数内で実行することにより、タイマーのコールバック中で起きる状態変更が反映されることを保証する
+    // act 함수 안에서 실행함으로써, 타이머의 콜백 안에서 발생하는 상태 변경이 반영되는 것을 보증한다
     await act(() => {
-      // タイマーにセットされたtimeoutをすべて実行する
+      // 타이머에 설정된 timeout을 모두 실행한다
       jest.runAllTimers() 
     })
 
     const spanNode = screen.getByTestId('display-text') as HTMLSpanElement
 
-    // 入力したテキストが表示されるか確認
-    expect(spanNode).toHaveTextContent(`入力したテキスト: ${inputText}`)
+    // 입력한 텍스트가 표시되는지 확인
+    expect(spanNode).toHaveTextContent(`입력한 텍스트: ${inputText}`)
   })
 
-  // 入力して1秒後にonChangeが呼ばれるかテスト
+  // 입력해서 1초 후에 onChange가 호출되는지 테스트
   it('should call onChange 1 second after onChange event occurs', async () => {
     const inputText = 'Test Input Text'
     const inputNode = screen.getByTestId('input-text') as HTMLInputElement
 
-    // inputのonChangeイベントを呼び出す
+    // input의 onChange 이벤트를 호출한다
     fireEvent.change(inputNode, { target: { value: inputText } })
 
-    // タイマーの実行
+    // 타이머 실행
     await act(() => {
       jest.runAllTimers() 
     })
 
-    // モック関数を渡し、呼ばれたか確認する
+    // 목 함수를 전달해, 호출되었는지 확인한다
     expect(handleChange).toHaveBeenCalled()
   })
 })

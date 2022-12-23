@@ -3,24 +3,24 @@ import { StyledButton } from '../components/StyledButton'
 import MDXDocument from './StyledButton.mdx'
 
 export default {
-  title: 'StyledButton (5) - ドキュメントを使用する',
+  title: 'StyledButton (5) - 도큐먼트를 사용한다',
   component: StyledButton,
   parameters: {
     docs: {
-      // ドキュメント用のmdxコンポーネントを指定
+      // 도큐먼트용의 mdx 컴포넌트를 지정한다
       page: MDXDocument,
     },
   },
 } as ComponentMeta<typeof StyledButton>
 
-// テンプレートコンポーネントを実装
-// Storybookから渡されたpropsをそのままButtonに渡す
+// 템플릿 컴포넌트를 구현한다
+// Storybook으로부터 전달된 props를 그대로 Button에 전달한다
 const Template: ComponentStory<typeof StyledButton> = (args) => <StyledButton {...args} />
 
-// bindを呼び出しStoryを作成
+// bind를 호출해 Story를 작성
 export const TemplateTest = Template.bind({})
 
-// デフォルトのpropsを設定する
+// 기본 props를 설정한다
 TemplateTest.args = {
   variant: 'primary',
   children: 'Primary',

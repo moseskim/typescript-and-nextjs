@@ -1,11 +1,11 @@
 import { ComponentMeta } from '@storybook/react'
 import { StyledButton } from '../components/StyledButton'
 
-// ファイル内のStoryの設定（メタデータオブジェクト）
+// 파일 안의 Story 설정(메타 데이터 객체)
 export default {
-  // グループ名
+  // 그룹명
   title: 'StyledButton (2) - actionを使用する',
-  // 使用するコンポーネント
+  // 사용할 컴포넌트
   component: StyledButton,
   argTypes: { onClick: { action: 'clicked' } },
 } as ComponentMeta<typeof StyledButton>

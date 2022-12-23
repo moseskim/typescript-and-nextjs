@@ -7,46 +7,46 @@ type DelayButtonProps = {
 export const DelayInput = (props: DelayButtonProps) => {
   const { onChange } = props
 
-  // 入力中かどうかを保持する状態
+  // 입력 중 여부를 유지하는 상태
   const [isTyping, setIsTyping] = useState(false)
-  // inputに表示するテキストを保持する状態
+  // input에 표시하는 텍스트를 유지하는 상태
   const [inputValue, setInputValue] = useState('')
-  // spanに表示するテキストを保持する状態
+  // span에 표시할 텍스트를 유지하는 상태
   const [viewValue, setViewValue] = useState('')
-  // タイマーを保持するRef
+  // 타이머를 유지하는 Ref
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    // 入力中のフラグをセットする
+    // 입력 중인 플래그를 설정한다
     setIsTyping(true)
-    // inputに表示するテキストを更新する
+    // input에 표시할 텍스트를 업데이트 한다
     setInputValue(e.target.value)
 
-    // もしtimerRefに以前設定したタイマーがある場合は先に解除する
+    // 만약 timerRef에 이전 설정한 타이머가 있다면 먼저 해제한다
     if (timerRef.current !== null) {
       clearTimeout(timerRef.current)
     }
 
-    // 1秒後に実行するタイマーをセットする
+    // 1초 후에 실행하는 타이머를 설정한다
     timerRef.current = setTimeout(() => {
       timerRef.current = null
 
-      // 入力中のフラグを解除する
+      // 입력 중 플래그를 해제한다
       setIsTyping(false)
-      // spanに表示するテキストを更新する
+      // span에 표시할 텍스트를 업데이트한다
       setViewValue(e.target.value)
-      // onChangeコールバックを呼ぶ
+      // onChange 콜백을 호출한다
       onChange(e)
     }, 1000)
 
   }, [onChange])
 
-  // spanに表示するテキスト
-  const text = isTyping ? '入力中...' : `入力したテキスト: ${viewValue}`
+  // span에 표시하는 텍스트
+  const text = isTyping ? '입력 중...' : `입력한 텍스트: ${viewValue}`
 
   return (
     <div>
-      {/* data-testidはテスト中だけ使用するID */ }
+      {/* data-testid는 테스트 안에서만 사용하는 ID */ }
       <input data-testid="input-text" value={inputValue} onChange={handleChange} />
       <span data-testid="display-text">{text}</span>
     </div>

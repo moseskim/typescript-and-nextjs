@@ -39,28 +39,28 @@ const Home: NextPage = () => {
         </p>
 
         <div>
-          <span>以下styled-componentの各サンプルコードのページへのリンクになります</span>
+          <span>다음은 styled-component의 각 샘플 코드의 페이지로의 링크입니다</span>
           <Links>
             <Link href="/badge">
-              <a>Badgeの例</a>
+              <a>Badge 예</a>
             </Link>
             <Link href="/props-sample">
-              <a>propsを使う例</a>
+              <a>props를 사용한 예</a>
             </Link>
             <Link href="/mixin-sample">
-              <a>mixinを使う例</a>
+              <a>mixin을 사용한 예</a>
             </Link>
             <Link href="/inheritance-sample">
-              <a>継承を使う例</a>
+              <a>상속을 사용한 예</a>
             </Link>
             <Link href="/as-sample">
-              <a>スタイルを他のコンポーネントで使用する例</a>
+              <a>스타일을 다른 컴포넌트에서 사용한 예</a>
             </Link>
             <Link href="/styled-link-sample">
-              <a>Next.jsのコンポーネントにスタイルを適用する例</a>
+              <a>Next.js의 컴포넌트에 스타일을 적용한 예</a>
             </Link>
             <Link href="/theme-sample">
-              <a>テーマを使う例</a>
+              <a>테마를 사용한 예</a>
             </Link>
           </Links>
         </div>

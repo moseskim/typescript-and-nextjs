@@ -6,8 +6,8 @@ type ButtonProps = {
   backgroundColor: string
 }
 
-// 文字色と背景色がpropsから変更可能なボタンコンポーネント
-// 型引数にpropsの型を渡す
+// 문자 색상과 배경 색상을 props로 변경할 수 있는 버튼 컴포넌트
+// 타입 인수에 props 타입을 전달한다
 const Button = styled.button<ButtonProps>`
   /* color, background, border-colorはpropsから渡す */
   color: ${(props) => props.color};
@@ -24,11 +24,11 @@ const Button = styled.button<ButtonProps>`
 const Page: NextPage = () => {
   return (
     <div>
-      {/* 赤色の文字で透明な背景のボタンを表示 */}
+      {/* 빨간색 문자에 투명한 배경의 버튼을 표시 */}
       <Button backgroundColor="transparent" color="#FF0000">
         Hello
       </Button>
-      {/* 白色の文字で青色の背景のボタンを表示 */}
+      {/* 흰색 문자에 파란색 배경의 버튼을 클릭 */}
       <Button backgroundColor="#1E90FF" color="white">
         World
       </Button>
