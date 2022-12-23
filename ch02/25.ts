@@ -1,6 +1,6 @@
-// window.confirm関数の返り型はbooelanを返すことをTypeScriptは知っているため
-// 代入する関数の型が一致しない場合コンパイル時エラーになります
+// window.confirm 함수의 반환 타입은 boolean인 것을 TypeScript가 알고 있으므로
+// 대입하는 함수 타입이 일치하지 않으면 컴파일 에러가 된다
 window.confirm = () => {
-  // booleanをreturnしない限りエラーになります
-  console.log('confirm関数')
+  // boolean을 return하지 않는 한 에러가 된다
+  console.log('confirm 함수')
 }

@@ -9,8 +9,8 @@ type Contact = {
   phone: string;
 }
 
-// 和集合による新たなUnion型の定義をします
-// IdentityもしくはContactの型を受けることが可能です
+// 합집합을 통한 새로운 Union 타입을 정의한다
+// Identity 또는 Contact 타입을 받을 수 있다
 type IdentityOrContact = Identity | Contact
 
 // OK

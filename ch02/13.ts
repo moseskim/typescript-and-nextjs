@@ -1,4 +1,4 @@
-// string型のnameとnumber型のageのみを持つオブジェクトの型を定義
+// string 타입의 name과 number 타입의 age가진 객체 타입을 정의한다
 const user: { name: string; age: number } = {
   name: 'Takya',
   age: 36

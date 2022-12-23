@@ -1,9 +1,9 @@
-// 名前とフォーマット関数を引数として受け取りフォーマットを実行してコンソール出力を行う関数を定義します
+// 이름과 포맷 함수를 인수로 받아 포맷팅 한 뒤 콘솔에 출력하는 함수를 정의한다
 function printName(firstName: string, formatter: (name: string) => string) {
   console.log(formatter(firstName))
 }
 
-// sanを末尾につける名前のフォーマット関数を定義します
+// san을 뒤에 뭍이는 이름 포맷 함수를 정의한다
 function formatName(name: string): string {
   return `${name} san`
 }

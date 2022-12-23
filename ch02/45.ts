@@ -5,9 +5,9 @@ enum Direction {
   Right = 'RIGHT'
 }
 
-// たとえばAPIのパラメータとして文字列が渡されたケースを想定します
+// 예를 들어, API의 파라미터로 문자열이 전달된 경우를 가정한다
 const value = 'DOWN'
-// 文字列からEnum型に変換します
+// 문자열에서 Enum 타입으로 변환한다
 const enumValue = value as Direction
 
 if (enumValue === Direction.Down) {
