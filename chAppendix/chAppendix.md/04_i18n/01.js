@@ -2,15 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   i18n: {
-    // サポートしたい言語
-    locales: ['ja', 'en'],
-    // デフォルトで表示したい言語
-    defaultLocale: 'jp',
-    // ドメインで分ける場合はドメインごとの設定を記述する
+    // 지원할 언어
+    locales: ['ko', 'en'],
+    // 기본으로 표시할 언어
+    defaultLocale: 'ko',
+    // 도메인으로 나눌 때는 도메인별로 설정을 기술한다
     domains: [
       {
-        domain: 'example.jp',
-        defaultLocale: 'ja',
+        domain: 'example.co.kr',
+        defaultLocale: 'kr',
       },
       {
         domain: 'example.com',
