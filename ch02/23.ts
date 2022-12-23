@@ -5,4 +5,4 @@ function getUser() {
   }
 }
 const user = getUser()
-console.log(user.age.length) // エラー: ageはnumber型なのでlengthプロパティはありません
+console.log(user.age.length) // 에러: age는 number 타입이므로 length 속성은 없다

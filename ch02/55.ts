@@ -1,4 +1,4 @@
-// nullになり得るsocialというプロパティの型を定義します
+// null이 될 수 있는 social이라는 속성의 타입을 정의한다
 interface User {
   name: string
   social?: {
@@ -10,9 +10,9 @@ interface User {
 let user: User
 
 user = { name: 'Takuya', social: { facebook: true, twitter: true } }
-// trueが出力されます
+// true가 출력된다
 console.log(user.social?.facebook)
 
 user = { name: 'Takuya' }
-// socialが存在しないケースでも以下のコードは実行時エラーになりません
+// social이 존재하지 않는 경우에도 다음 코드는 실행 시 에러가 되지 않는다
 console.log(user.social?.facebook) 

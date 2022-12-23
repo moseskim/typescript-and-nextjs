@@ -4,17 +4,17 @@ interface Point {
 }
 
 function printPoint(point: Point) {
-  console.log(`x座標は${point.x}です`)
-  console.log(`y座標は${point.y}です`)
-  console.log(`z座標は${point.z}です`)
+  console.log(`x 좌표는 ${point.x}입니다`)
+  console.log(`y 좌표는 ${point.y}입니다`)
+  console.log(`z 좌표는 ${point.z}입니다`)
 }
 
 interface Point {
   z: number;
 }
 
-// 引数のオブジェクトにzが存在しないためコンパイル時にエラーになります
+// 인수의 객체에 z가 존재하지 않으므로 컴파일 시 에러가 된다
 printPoint({ x: 100, y: 100 })
 
-// 問題なく動作します
+// 문제없이 동작한다
 printPoint({ x: 100, y: 100, z: 200 })

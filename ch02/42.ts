@@ -4,18 +4,18 @@ class BasePoint3D {
   protected z: number;
 }
 
-// インスタンス化を行った場合のアクセス制御の例です
+// 인터페이스화 했을 떄의 접근 제어 예
 const basePoint = new BasePoint3D()
 basePoint.x // OK
-basePoint.y // コンパイル時エラーが起きます。privateであるためアクセスできません
-basePoint.z // コンパイル時エラーが起きます。protectedもアクセスできません
+basePoint.y // 컴파일 시 에러가 발생한다. private이므로 접근할 수 없다.
+basePoint.z // 컴파일 시 에러가 발생한다. protected이므로 접근할 수 없다.
 
-// クラスを継承した際のアクセス制御
+// 클래스를 상속했을 때의 접근 제어 예
 class ChildPoint extends BasePoint3D {
   constructor() {
     super()
     this.x // OK
-    this.y // コンパイル時エラーが起きます。privateであるためアクセスできません
-    this.z // protectedは問題なくアクセスできます
+    this.y // 컴파일 시 에러가 발생한다. private이므로 접근할 수 없다.
+    this.z // protected는 문제없이 접근할 수 있다.
   }
 }

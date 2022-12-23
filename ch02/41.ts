@@ -1,8 +1,8 @@
-// 頭のIはインタフェースであることを示すためのもの
+// 머릿 글자의 I는 인터페이스임을 나타내기 위한 것이다
 interface IUser {
   name: string;
   age: number;
-  sayHello: () => string; // 引数なしで文字列を返す
+  sayHello: () => string; // 인수 없이 문자열을 반환한다
 }
 
 class User implements IUser {
@@ -14,13 +14,13 @@ class User implements IUser {
     this.age = 0
   }
 
-  // インタフェースに定義されているメソッドを実装しない場合、コンパイル時エラーになります
+  // 인터페이스에 정의되어 있는 메서드를 구현하지 않으면, 컴파일 시 에러가 된다
   sayHello(): string {
-    return `こんにちは、私は${this.name}、${this.age}歳です。`
+    return `안녕하세요. 저는 ${this.name}이며, ${this.age}살입니다.`
   }
 }
 
 const user = new User()
 user.name = 'Takuya'
 user.age = 36
-console.log(user.sayHello()) // 'こんにちは、私はTakuya、36歳です。'
+console.log(user.sayHello()) // '안녕하세요. 저는 Takuya이며, 36살입니다.'
