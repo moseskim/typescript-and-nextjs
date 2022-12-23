@@ -18,14 +18,14 @@ const Page = () => {
   )
 
   const onSubmit = useCallback(() => {
-    // メッセージをAPIに送信する
+    // 메시지를 API에 전송한다
     ...
   }, [inputMessage])
 
   return (
     <div>
-      <h1>掲示板</h1>
-      <h2>メッセージを送信</h2>
+      <h1>게시판</h1>
+      <h2>메시지 송신</h2>
       <div>
         <textarea
           name="message"
@@ -34,9 +34,9 @@ const Page = () => {
           onChange={onInputMessageChange}
           style={{ display: 'block' }}
         />
-        <button onClick={onSubmit}>送信</button>
+        <button onClick={onSubmit}>송신</button>
       </div>
-      <h2>過去のメッセージ</h2>
+      <h2>과거 메시지</h2>
       <ul id="messages">
         {messages.map((message, index) => (
           <li key={index}>{message}</li>

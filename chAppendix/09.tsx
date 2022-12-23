@@ -2,23 +2,23 @@ const SearchPage = () => {
   const jsonld = {
     '@context': 'https://schema.org/',
     '@type': 'BreadcrumbList',
-    name: 'パンくずリスト',
+    name: '빵 부스러기 리스트',
     itemListElement: [
       {
         '@type': 'ListItem',
         position: 1,
-        item: { name: 'トップ', '@id': 'https://localhost:3000/' },
+        item: { name: '톱', '@id': 'https://localhost:3000/' },
       },
       {
         '@type': 'ListItem',
         position: 2,
-        item: { name: '検索', '@id': 'https://localhost:3000/search' },
+        item: { name: '검색', '@id': 'https://localhost:3000/search' },
       },
       {
         '@type': 'ListItem',
         position: 3,
         item: {
-          name: 'トップス',
+          name: '상의',
           '@id': 'https://localhost:3000/search/clothes',
         },
       },
@@ -36,17 +36,17 @@ const SearchPage = () => {
       <ol>
         <li>
           <Link href="/">
-            <a>トップ</a>
+            <a>톱</a>
           </Link>
         </li>
         <li>
           <Link href="/search">
-            <a>検索</a>
+            <a>검색</a>
           </Link>
         </li>
         <li>
           <Link href="/search/clothes">
-            <a>トップス</a>
+            <a>상의</a>
           </Link>
         </li>
       </ol>

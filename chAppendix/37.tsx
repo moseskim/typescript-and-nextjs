@@ -7,9 +7,9 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // すべてのページに設定
+        // 모든 페이지에 설정
         source: "/(.*)",
-        // 使用するセキュリティヘッダを指定
+        // 사용할 보안 헤더를 지정
         headers: [
           {
             key: "X-DNS-Prefetch-Control",

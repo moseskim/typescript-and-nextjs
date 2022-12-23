@@ -3,7 +3,7 @@ function PaymentSuccess() {
     <div>
       <section>
         <div>
-          <h3>決済成功です！</h3>
+          <h3>결제에 성공했습니다!</h3>
         </div>
       </section>
     </div>

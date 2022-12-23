@@ -20,7 +20,7 @@ type SitemapInfo = {
   priority: number
 }
 
-// 静的に決まっているパスを定義
+// 정적으로 결정되어 있는 경로를 정의
 const StaticPagesInfo: SitemapInfo[] = [
   {
     path: '/',
@@ -39,7 +39,7 @@ const StaticPagesInfo: SitemapInfo[] = [
   },
 ]
 
-// 動的なパスの情報を取得する
+// 동적인 경로의 정보를 얻는다
 const getProductPagesInfo = async (): Promise<SitemapInfo[]> => {
   const context: ApiContext = {
     apiRootUrl: process.env.API_BASE_URL || 'http://localhost:5000',
@@ -66,9 +66,9 @@ const getUserPagesInfo = async (): Promise<SitemapInfo[]> => {
   }))
 }
 
-// 各ページの情報からsitemap.xmlを生成する
+// 각 페이지의 정보로부터 sitemap.xml을 생성한다
 const generateSitemapXML = (baseURL: string, sitemapInfo: SitemapInfo[]) => {
-  // <url>タグを生成する
+  // <url> 태그를 생성한다
   const urls = sitemapInfo.map((info) => {
     const children = Object.entries(info)
       .map(([key, value]) => {
@@ -93,14 +93,14 @@ const generateSitemapXML = (baseURL: string, sitemapInfo: SitemapInfo[]) => {
     return `<url>${children.join('\n')}</url>`
   })
 
-  // 共通のXML部分で包む
+  // 공통의 XML 부분을 감싼다
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join(
     "\n"
   )}</urlset>`
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  // ベースURLをreqから取得
+  // 베이스 URL을 req에서 얻는다
   const host = req?.headers?.host ?? 'localhost'
   const protocol =
     req.headers['x-forwarded-proto'] || req.connection.encrypted
@@ -108,7 +108,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
       : 'http'
   const base = `${protocol}://${host}`
 
-  // sitemap.xmlに必要なURLを列挙
+  // sitemap.xml에 필요한 URL을 열거
   const simtemapInfo = [
     ...StaticPagesInfo,
     ...(await getProductPagesInfo()),
@@ -117,7 +117,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
   const sitemapXML = generateSitemapXML(base, simtemapInfo)
 
-  // キャッシュを設定し、24時間に1回程度の頻度でXMLを生成するようにする
+  // 캐시를 설정하고, 24시간에 1번 정도의 빈도로 XML을 생성하도록 한다
   res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate')
   res.setHeader('Content-Type', 'text/xml')
   res.write(sitemapXML)

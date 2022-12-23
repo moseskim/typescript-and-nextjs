@@ -1,7 +1,7 @@
-{/* JSXで記述する例 */}
+{/* JSX에서 기술하는 예 */}
 <div>
   <button
-    aria-label="閉じる"
+    aria-label="닫기"
     onClick={onClickHandler}
     className="close-button"
   />

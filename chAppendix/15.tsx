@@ -1,1 +1,1 @@
-<img src="/products/books/red-book.png" alt="商品画像" />
+<img src="/products/books/red-book.png" alt="상품 이미지" />

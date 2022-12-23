@@ -7,7 +7,7 @@ const ImageSample: NextPage = (props) => {
     <div>
       <Image
         src={BibleImage}
-        alt="Next.jsバイブルの表紙。"
+        alt="Next.js 바이블 표지."
       />
     </div>
   )

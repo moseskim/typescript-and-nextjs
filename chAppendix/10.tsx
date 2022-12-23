@@ -7,7 +7,7 @@ const SearchPage = () => {
           <Link href="/">
             <a itemprop="item">
               <span itemprop="name">
-                トップ
+                톱
               </span>
             </a>
             <meta itemprop="position" content="1" />
@@ -17,7 +17,7 @@ const SearchPage = () => {
           <Link href="/search">
             <a itemprop="item">
               <span itemprop="name">
-                検索
+                검색
               </span>
             </a>
             <meta itemprop="position" content="2" />
@@ -27,7 +27,7 @@ const SearchPage = () => {
           <Link href="/search/clothes">
             <a itemprop="item">
               <span itemprop="name">
-                トップス
+                상의
               </span>
             </a>
             <meta itemprop="position" content="3" />

@@ -1,3 +1,3 @@
 import '@testing-library/jest-dom/extend-expect'
-// 以下の1行を追加する
+// 다음 1행을 추가한다
 require('jest-fetch-mock').enableMocks()

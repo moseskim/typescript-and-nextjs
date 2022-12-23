@@ -1,3 +1,3 @@
 <div role="button" tabindex="0">
-  表示する
+  표시한다
 </div>

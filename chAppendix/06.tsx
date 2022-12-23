@@ -7,13 +7,13 @@ const HomePage = ({
   shoesProducts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   ...
-  logger.info('HomePageコンポーネントの描画関数内で呼ばれたログです')
+  logger.info('HomePage 컴포넌트 그리기 함수 안에서 호출된 로그입니다')
   ...
 }
 
 export async function getStaticProps() {
   ...
-  logger.info('getStaticProps内で呼ばれたログです')
+  logger.info('getStaticProps 안에서 호출된 로그입니다')
   ...
 }
 
