@@ -4,8 +4,8 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 
 /* 
-  サンプルコード中の各コンポーネントを表示するためには、
-  表示したいコンポーネントのインポート文とrenderメソッド内のコメントを解除してください
+  샘플 코드 안의 각 컴포넌트를 표시하기 위해서는
+  표시할 컴포넌트의 임포트문과 render 메서드 안의 주석을 해제한다
 */
 import App from './App';
 // import Hello from './components/Hello'

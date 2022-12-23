@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router' // インポート
-import { useEffect } from 'react' // 副作用を伴う処理用に導入
+import { useRouter } from 'next/router' // 임포트
+import { useEffect } from 'react' // 부작용을 수반하는 처리용으로 도입
 
 const Page = () => {
-  const router = useRouter() // useRouterの使用
+  const router = useRouter() // useRouter 사용
 
-  // 以下のコメント部分のコメントを解除すると/userouterに移動するようになる
-  // 注: サンプルプロジェクトでは/userouterに対応するページはありません
+  // 다음 주석 부분의 주석을 해제히면 /userouter로 이동하게 된다
+  // 주: 샘플 프로젝트에는 /userouter에 대응하는 페이지가 없다
   useEffect( () => {
       router.push('/userouter')
   })

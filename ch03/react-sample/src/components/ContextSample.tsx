@@ -1,14 +1,14 @@
 import React from 'react'
 
-// Titleを渡すためのContextを作成します
+// Title을 전달하기 위한 Context를 작성한다
 const TitleContext = React.createContext('')
 
-// Titleコンポーネントの中でContextの値を参照します
+// Title 컴포넌트 안에서 Context의 값을 참조한다
 const Title = () => {
-  // Consumerを使って、Contextの値を参照します
+  // Consumer를 사용해, Context의 값을 참조한다
   return (
     <TitleContext.Consumer>
-      {/* Consumer直下に関数を置いて、Contextの値を参照します */}
+      {/* Consumer 바로 아래 함수를 두고, Context 값을 참조한다 */}
       {(title) => {
         return <h1>{title}</h1>
       }}
@@ -19,18 +19,18 @@ const Title = () => {
 const Header = () => {
   return (
     <div>
-      {/* HeaderからTitleへは何もデータを渡しません */}
+      {/* Header로부터 Title로는 아무 데이터도 전달하지 않는다 */}
       <Title />
     </div>
   )
 }
 
-// Pageコンポーネントの中でContextに値を渡します
+// Page 컴포넌트 안에서 Context에 값을 전달한다
 const Page = () => {
   const title = 'React Book'
 
-  // Providerを使いContextに値をセットします。
-  // Provider以下のコンポーネントから値を参照できます
+  // Provider를 사용해 Context에 값을 설정한다.
+  // Provider 아래의 컴포넌트로부터 값을 참조할 수 있다.
   return (
     <TitleContext.Provider value={title}>
       <Header />

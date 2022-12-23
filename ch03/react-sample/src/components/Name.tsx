@@ -1,21 +1,21 @@
 import React from 'react'
 
-// 名前を入力するためのテキストボックスを返す
+// 이름을 입력하기 위한 텍스트 박스를 반환한다
 const Name = () => {
-  // input要素のonchangeイベントに対するコールバック関数を定義します
-  // React.ChangeEventはフォームonchangeイベントに対応する型です
-  // 詳しくは https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events もご参照ください
+  // input 요소의 onchange 이벤트에 대한 콜백 함수를 정의한다
+  // React.ChangeEvent는 폼 onchange 이벤트에 대응하는 타입이다
+  // 자세한 내용은 https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events를 참조한다
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // 入力されたテキストをコンソールに表示します
+    // 입력된 텍스트를 콘솔에 표시한다
     console.log(e.target.value)
   }
 
   return (
-    // styleオブジェクトのキーはキャメルケースになります
+    // style 객체의 키는 캐멀 케이스가 된다
     <div style={{padding: '16px', backgroundColor: 'grey'}}>
-      {/* forの代わりにhtmlForを使います */}
+      {/* for 대신에 htmlFor를 사용한다 */}
     　<label htmlFor="name">名前</label>
-      {/* classやonchangeの代わりに、classNameやonChangeを使います */}
+      {/* class나 onchange 대신, className이나 onChange를 사용한다 */}
     　<input id="name" className="input-name" type="text" onChange={onChange} />
     </div>
   )

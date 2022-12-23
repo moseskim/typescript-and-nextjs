@@ -16,7 +16,7 @@ const SSR: NextPage<SSRProps> = (props) => {
       </Head>
       <main>
         <p>
-          このページはサーバーサイドレンダリングによってアクセス時にサーバーで描画されたページです。
+          이 페이지는 서버 사이드 렌더링을 통해 접근 시에 서버에서 그려진 페이지입니다.
         </p>
         <p>{message}</p>
       </main>
@@ -24,12 +24,12 @@ const SSR: NextPage<SSRProps> = (props) => {
   )
 }
 
-// getServerSidePropsはページへのリクエストがある度に実行される
+// getServerSideProps는 페이지로의 요청이 있을 때마다 실행된다
 export const getServerSideProps: GetServerSideProps<SSRProps> = async (
   context
 ) => {
   const timestamp = new Date().toLocaleString()
-  const message = `${timestamp} にこのページのgetServerSidePropsが実行されました`
+  const message = `${timestamp}에 이 페이지의 getServerSideProps가 실행되었습니다`
   console.log(message)
 
   return {

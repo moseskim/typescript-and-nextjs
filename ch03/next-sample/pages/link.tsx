@@ -2,16 +2,16 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-// 型注釈が無くてもビルドが通るため省略
+// 타입 애너테이션이 없어도 빌드를 통과하므로 생략한다
 function LinkSample() {
   const router = useRouter()
 
   const onSubmit = () => {
-    // /ssrへ遷移します
+    // /ssr로 이동한다
     router.push('/ssr')
 
-    // 文字列の代わりにオブジェクトで指定できます
-    // /ssg?keyword=helloへ遷移します
+    // 문자열 대신 객체로 지정할 수 있다
+    // /ssg?keyword=hello로 이동한다
     router.push({
       pathname: '/ssg',
       query: { keyword: 'hello' },
@@ -27,12 +27,12 @@ function LinkSample() {
   }
 
   useEffect(() => {
-    // 遷移開始時のイベントを購読します
+    // 이동 시작 시의 이벤트를 구독한다
     router.events.on('routeChangeStart', (url, { shallow }) => {
       console.log('routeChangeStart', url)
     })
 
-    // 遷移完了時のイベントを購読します
+    // 이동 완료 시의 이벤트를 구독한다
     router.events.on('routeChangeComplete', (url, { shallow }) => {
       console.log('routeChangeComplete', url)
     })
@@ -54,7 +54,7 @@ function LinkSample() {
         <a>GO TO SSG with keyword "hello"</a>
       </Link>
       <Link href="/ssg">
-        {/* aの代わりにbuttonを使うと、onClickが呼ばれたタイミングで遷移します */}
+        {/* a 대신 button을 사용하면, onClick이 호출되는 시점에 이동한다 */}
         <button>Jump to SSG page</button>
       </Link>
       <button onClick={onSubmit}>Submit</button>

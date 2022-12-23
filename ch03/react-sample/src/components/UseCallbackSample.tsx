@@ -4,29 +4,29 @@ type ButtonProps = {
   onClick: () => void
 }
 
-// DecrementButtonは通常の関数コンポーネントでボタンを表示する
+// DecrementButton은 보통 함수 컴포넌트로 버튼을 표시한다
 const DecrementButton = (props: ButtonProps) => {
   const { onClick } = props
 
-  console.log('DecrementButtonが再描画されました')
+  console.log('DecrementButton이 다시 그려졌습니다')
 
   return <button onClick={onClick}>Decrement</button>
 }
 
-// IncrementButtonはメモ化した関数コンポーネントでボタンを表示する
+// IncrementButton은 메모이제이션한 함수 컴포넌트로 버튼을 표시한다
 const IncrementButton = React.memo((props: ButtonProps) => {
   const { onClick } = props
 
-  console.log('IncrementButtonが再描画されました')
+  console.log('IncrementButton이 다시 그려졌습니다')
 
   return <button onClick={onClick}>Increment</button>
 })
 
-// DoubleButtonはメモ化した関数コンポーネントでボタンを表示する
+// DoubleButtondms 메모이제이션한 함수 컴포넌트로 버튼을 표시한다
 const DoubleButton = React.memo((props: ButtonProps) => {
   const { onClick } = props
 
-  console.log('DoubleButtonが再描画されました')
+  console.log('DoubleButton이 다시 그려졌습니다')
 
   return <button onClick={onClick}>Double</button>
 })
@@ -40,20 +40,20 @@ const Parent = () => {
   const increment = () => {
     setCount((c) => c + 1)
   }
-  // useCallbackを使って関数をメモ化する
+  // useCallback을 사용해 함수를 메모이제이션한다
   const double = useCallback(() => {
     setCount((c) => c * 2)
-    // 第2引数は空配列なので、useCallbackは常に同じ関数を返す
+    // 두 번째 인수는 빈 배열이므로, useCallback은 항상 같은 함수를 반환한다
   }, [])
 
   return (
     <div>
       <p>Count: {count}</p>
-      {/* コンポーネントに関数を渡す */}
+      {/* 컴포넌트에 함수를 전달한다 */}
       <DecrementButton onClick={decrement} />
-      {/* メモ化コンポーネントに関数を渡す */}
+      {/* 메모이제이션한 컴포넌트에 함수를 전달한다 */}
       <IncrementButton onClick={increment} />
-      {/* メモ化コンポーネントにメモ化した関数を渡す */}
+      {/* 메모이제이션한 컴포넌트에 메모이제이션한 함수를 전달한다 */}
       <DoubleButton onClick={double} />
     </div>
   )
