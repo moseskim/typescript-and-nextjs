@@ -1,2 +1,2 @@
-<div aria-label="..."> //○
-<div ariaLabel="..."> //×
+<div aria-label="..."> // ○
+<div ariaLabel="..."> // ×
