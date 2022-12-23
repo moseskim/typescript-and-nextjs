@@ -1,8 +1,8 @@
 // src/components/ContainerSample.tsx
 import React from 'react'
 
-// React17以前ではFCを指定した場合、
-// childrenがpropsに暗黙的に含まれています
+// React17 이전에는 FC를 지정한 경우,
+// children이 props에 암묵적으로 포함되어 있다
 type ContainerProps = {
   title: string
 }
@@ -18,7 +18,7 @@ const Container: React.FC<ContainerProps> = (props) => {
   )
 }
 
-// React17以前ではchildrenを使用しない場合、VFCを指定します
+// React17 이전에는 children를 사용하지 않는 경우, VFC를 지정한다
 const Parent: React.VFC = () => {
   return (
     <Container>

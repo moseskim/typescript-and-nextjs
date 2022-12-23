@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react'
 
 function Sayhello(){
-    // 内部で状態を持つためuseStateを利用
+    // 내부에서 상태를 가지므로 useState를 사용
     const [data, setData] = useState({name: ''})
-    // 外部のAPIにリクエストするのは副作用なのでuseEffect内で処理
+    // 외부 API에 요청하는 것은 부작용이므로 useEffect에서 처리
     useEffect(() =>{
-        // pages/api/hello.tsの内容にリクエスト
+        // pages/api/hello.ts의 내용으로 요청
         fetch('api/hello')
           .then((res) => res.json())
           .then((profile) => {

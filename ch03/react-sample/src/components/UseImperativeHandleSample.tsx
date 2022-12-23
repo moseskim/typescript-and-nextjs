@@ -3,7 +3,7 @@ import React, { useState, useRef, useImperativeHandle } from 'react'
 const Child = React.forwardRef((props, ref) => {
   const [message, setMessage] = useState<string | null>(null)
 
-  // useImperativeHandleで親のrefから参照できる値を指定
+  // useImperativeHandle에서 부모의 ref로부터 참조할 수 있는 값을 지정
   useImperativeHandle(ref, () => ({
     showMessage: () => {
       const date = new Date()
@@ -19,7 +19,7 @@ const Parent = () => {
   const childRef = useRef<{ showMessage: () => void }>(null)
   const onClick = () => {
     if (childRef.current !== null) {
-      // 子のuseImperativeHandleで指定した値を参照
+      // 자녀의 useImperativeHandle에서 지정한 값을 참조
       childRef.current.showMessage()
     }
   }

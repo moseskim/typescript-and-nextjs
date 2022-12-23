@@ -1,9 +1,9 @@
 import { useState, useEffect, useLayoutEffect } from 'react'
 
-// タイマーが呼び出される周期を1秒にする
+// 타이머가 호출되는 주기를 1초로 한다
 const UPDATE_CYCLE = 1000
 
-// localstorageで使用するキー
+// localstorage에서 사용하는 키
 const KEY_LOCALE = 'KEY_LOCALE'
 
 enum Locale {
@@ -26,21 +26,21 @@ const Clock = () => {
   const [timestamp, setTimestamp] = useState(new Date())
   const [locale, setLocale] = useState(Locale.US)
 
-  // タイマーのセットをするための副作用
+  // 타이머를 설정하기 위한 부작용
   useEffect(() => {
-    // タイマーのセット
+    // 타이머 셋
     const timer = setInterval(() => {
       setTimestamp(new Date())
     }, UPDATE_CYCLE)
 
-    // クリーンアップ関数を渡し、アンマウント時にタイマーの解除をする
+    // 클린업 함수를 전달하고, 언마운트 시에 타이머를 해제한다
     return () => {
       clearInterval(timer)
     }
-    // 初期描画時のみ実行する
+    // 로기 그리기 시에만 실행한다
   }, [])
 
-  // useEffectからuseLayoutEffectに変更
+  // useEffect에서 useLayoutEffect로 변경한다
   useLayoutEffect(() => {
     const savedLocale = localStorage.getItem(KEY_LOCALE)
     if (savedLocale !== null) {
@@ -48,16 +48,16 @@ const Clock = () => {
     }
   }, [])
 
-  // localeが変化した時に、localstorageに値を保存するための副作用
+  // locale이 바뀌었을 때, localstorage에 값을 저장하기 위한 부작용
   useEffect(() => {
     localStorage.setItem(KEY_LOCALE, locale)
-    // 依存配列にlocaleを渡し、localeが変化する度に実行するようにする
+    // 의존 배열에 locale을 전달하고, locale이 변화할 때마다 실행되도록 한다
   }, [locale])
 
   return (
     <div>
       <p>
-        <span id="current-time-label">現在時刻</span>
+        <span id="current-time-label">현재 시각</span>
         <span>:{timestamp.toLocaleString(locale)}</span>
         <select
           value={locale}

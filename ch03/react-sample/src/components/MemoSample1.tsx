@@ -4,12 +4,12 @@ type FizzProps = {
   isFizz: boolean
 }
 
-// Fizzは通常の関数コンポーネント
-// isFizzがtrueの場合はFizzと表示し、それ以外は何も表示しない
-// isFizzの変化に関わらず、親が再描画されるとFizzも再描画される
+// Fizz는 보통 함수 컴포넌트
+// isFizz가 true이면 Fizz라고 표시하고, 그 이외에는 아무것도 표시하지 않는다
+// isFizz의 변화에 관계없이, 부모가 다시 그려지면 Fizz도 다시 그려진다
 const Fizz = (props: FizzProps) => {
   const { isFizz } = props
-  console.log(`Fizzが再描画されました, isFizz=${isFizz}`)
+  console.log(`Fizz가 다시 그려졌습니다. isFizz=${isFizz}`)
   return <span>{isFizz ? 'Fizz' : ''}</span>
 }
 
@@ -17,12 +17,12 @@ type BuzzProps = {
   isBuzz: boolean
 }
 
-// Buzzはメモ化した関数コンポーネント
-// isBuzzがtrueの場合はBuzzと表示し、それ以外は何も表示しない
-// 親コンポーネントが再描画されても、isBuzzが変化しない限りはBuzzは再描画しない
+// Buzz는 메모이제이션한 함수 컴포넌트
+// isBuzz가 true이면 Buzz라 표시하고, 그 이외에는 아무것도 표시하지 않는다
+// 부모 컴포넌트가 다시 그려져도, isBuzz가 바뀌지 않는 한 Buzz는 다시 그려지지 않는다
 const Buzz = memo<BuzzProps>((props) => {
   const { isBuzz } = props
-  console.log(`Buzzが再描画されました, izBuzz=${isBuzz}`)
+  console.log(`Buzz가 다시 그려졌습니다. izBuzz=${isBuzz}`)
   return (
     <span>
     {isBuzz ? 'Buzz' : ''}
@@ -35,11 +35,11 @@ const Parent = () => {
   const isFizz = count % 3 === 0
   const isBuzz = count % 5 === 0
 
-  console.log(`Parentが再描画されました, count=${count}`)
+  console.log(`Parent가 다시 그려졌습니다. count=${count}`)
   return (
     <div>
       <button onClick={() => setCount((c) => c+1)}>+1</button>
-      <p>{`現在のカウント: ${count}`}</p>
+      <p>{`편재 카운트: ${count}`}</p>
       <p>
         <Fizz isFizz={isFizz} />
         <Buzz isBuzz={isBuzz} />

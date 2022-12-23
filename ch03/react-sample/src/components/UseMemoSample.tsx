@@ -1,31 +1,31 @@
 import React, { useState, useMemo } from 'react'
 
 const UseMemoSample = () => {
-  // textは現在のテキストボックスの中身の値を保持する
+  // text는 현재의 텍스트 박스의 내용값을 저장한다
   const [text, setText] = useState('')
-  // itemsは文字列のリストを保持する
+  // items는 문자열 리스트를 저장한다
   const [items, setItems] = useState<string[]>([])
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value)
   }
 
-  // ボタンをクリックした時に呼ばれる関数
+  // 버튼을 클릭했을 때 호출되는 함수
   const onClickButton = () => {
     setItems((prevItems) => {
-      // 現在の入力値をitemsに追加する、この時新しい配列を作成して保存する
+      // 현재의 입력값을 items에 추가한다. 이때, 새로운 배열을 작성해서 저장한다
       return [...prevItems, text]
     })
-    // テキストボックスの中の値を空にする
+    // 텍스트 박스 안의 값을 비운다
     setText('')
   }
 
-  // numberOfCharacters1は再描画の度にitems.reduceを実行して結果を得る
+  // numberOfCharacters1은 다시 그릴 때마다 items.reduce를 실행해서 결과를 얻는다
   const numberOfCharacters1 = items.reduce((sub, item) => sub + item.length, 0)
-  // numberOfCharacters2はuseMemoを使い、itemsが更新されるタイミングでitems.reduceを実行して結果を得る
+  // numberOfCharacters2는 useMemo를 사용해, items가 업데이트 되는 시점에 items.reduce를 실행해서 결과를 얻는다
   const numberOfCharacters2 = useMemo(() => {
     return items.reduce((sub, item) => sub + item.length, 0)
-     // 第2引数の配列の中にitemsがあるので、itemsが新しくなった時だけ関数を実行してメモを更新します
+     // 두 번째 인수의 배열 안에 items가 있으므로, items가 새롭게 됐을 때만 함수를 실행해서 메모를 업데이트 한다
   }, [items])
 
   return (
