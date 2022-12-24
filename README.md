@@ -15,7 +15,7 @@
     * ReactとTypeScript를 사용하는 타입의 예 등이 게제되어 있습니다. 어떤 타입을 사용하는 것이 좋은지 학습하는데 도움이 됩니다.
 * Next.js Specific Types - TypeScript | Learn Next.js <https://nextjs.org/learn/excel/typescript/nextjs-types>
     * Next.js 공식 학습 콘텐츠 안의 TypeScript 항목입니다. Next.js에서 타입을 지정할 때의 예를 소개합니다.
-* Reactの`index.d.ts` <https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts>
+* React의 `index.d.ts` <https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts>
     * React 타입 정의 파일입니다. 항상 참조하기 바랍니다.
-* Next.js 타입 정의 <https://github.com/vercel/next.js/tree/canary/packages/next/types>
+* Next.js의 타입 정의 <https://github.com/vercel/next.js/tree/canary/packages/next/types>
     * Next.js의 타입 정의 파일은 몇 개로 나뉘어 있습니다. NextPage 등은 `index.d.ts`에 있습니다. 항상 참조하기 바랍니다.
