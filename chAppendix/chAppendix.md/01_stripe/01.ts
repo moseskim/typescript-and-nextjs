@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-// 아래의 시크릿 키를 여러분의 것을 치환한다
+// 아래의 시크릿 키를 여러분의 것으로 치환한다
 const stripe = require('stripe')('sk_test_xxxxxxxxxxxxxxxxxxx')
 
 export default async function payment(
