@@ -8,15 +8,15 @@ const KEY_LOCALE = 'KEY_LOCALE'
 
 enum Locale {
   US = 'en-US',
-  JP = 'ja-JP',
+  KO = 'ko-KR',
 }
 
 const getLocaleFromString = (text: string) => {
   switch (text) {
     case Locale.US:
       return Locale.US
-    case Locale.JP:
-      return Locale.JP
+    case Locale.KO:
+      return Locale.KO
     default:
       return Locale.US
   }
@@ -63,7 +63,7 @@ const Clock = () => {
           value={locale}
           onChange={(e) => setLocale(getLocaleFromString(e.target.value))}>
           <option value="en-US">en-US</option>
-          <option value="ja-JP">ja-JP</option>
+          <option value="ko-KR">ko=KR</option>
         </select>
       </p>
     </div>
